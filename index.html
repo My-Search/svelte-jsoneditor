@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <title>JSON在线编辑器</title>
+  <link rel="shortcut icon" href="/favicon.ico">
+  <style>
+    #jsoneditor {
+      position: fixed;
+      inset: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="jsoneditor"></div>
+
+  <script type="module">
+    import { JSONEditor } from './lib/vanilla-jsoneditor/standalone.js'
+
+    // create the editor
+    const editor = new JSONEditor({
+      target: document.getElementById('jsoneditor')
+    })
+    // props update 
+    editor.updateProps({
+      mode: "text",
+      flattenColumns: true,
+      content: {
+        json: {
+          array: [1, 2, 3],
+          boolean: true,
+          color: '#82b92c',
+          null: null,
+          number: 123,
+          object: { a: 'b', c: 'd' },
+          time: 1575599819000,
+          string: '示例字符串\ud83d\ude00'
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
